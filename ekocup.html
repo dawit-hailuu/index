@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eko Cup Trading — Ethiopian Specialty Coffee, Exported to the World</title>
+<meta name="description" content="Eko Cup Trading exports traceable, single-origin Ethiopian specialty green coffee — Yirgacheffe, Sidama, and Guji — directly from source to the world's finest roasters." />
+<meta name="author" content="Eko Cup Trading" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Eko Cup Trading — Ethiopia's Specialty Coffee to the World" />
+<meta property="og:description" content="Traceable, single-origin Ethiopian green coffee from Yirgacheffe, Sidama & Guji. Direct trade. 84+ SCA. Built for the world's best roasters." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=80" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Eko Cup Trading — Ethiopia's Specialty Coffee to the World" />
+<meta name="twitter:description" content="Traceable, single-origin Ethiopian green coffee. Direct trade. Built for the world's best roasters." />
+<meta name="theme-color" content="#1A0A00" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --color-espresso:#1A0A00;
+    --color-dark:#0D0500;
+    --color-brown:#3D1F00;
+    --color-gold:#C9A84C;
+    --color-gold-light:#E8C96E;
+    --color-cream:#F5EFE0;
+    --color-cream-dark:#EDE3CC;
+    --color-text:#2C1810;
+    --color-text-light:#8B7355;
+
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --ease:cubic-bezier(.16,1,.3,1);
+    --gutter:clamp(1.5rem, 5vw, 7rem);
+    --section-pad:clamp(5rem, 12vh, 11rem);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--sans);
+    background:var(--color-dark);
+    color:var(--color-cream);
+    line-height:1.6;
+    overflow-x:hidden;
+    opacity:0;
+    transition:opacity 1.1s ease;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  body.loaded{opacity:1}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  ::selection{background:var(--color-gold);color:var(--color-dark)}
+
+  /* film-grain overlay for editorial depth */
+  body::after{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;z-index:9999;
+    opacity:.045;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- shared type ---------- */
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:.72rem;
+    font-weight:500;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    color:var(--color-gold);
+    display:inline-flex;align-items:center;gap:1rem;
+  }
+  .eyebrow::before{
+    content:"";width:clamp(28px,4vw,56px);height:1px;
+    background:linear-gradient(90deg,transparent,var(--color-gold));
+  }
+  .eyebrow.center::after{
+    content:"";width:clamp(28px,4vw,56px);height:1px;
+    background:linear-gradient(90deg,var(--color-gold),transparent);
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+  .display{font-size:clamp(3.4rem, 9vw, 9.5rem)}
+  .section-title{font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.04}
+  .lead{font-size:clamp(1.05rem,1.6vw,1.35rem);font-weight:300;color:rgba(245,239,224,.62);max-width:46ch}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.6rem var(--gutter);
+    transition:padding .5s var(--ease), background .5s var(--ease), border-color .5s var(--ease), backdrop-filter .5s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  nav.scrolled{
+    padding:1rem var(--gutter);
+    background:rgba(13,5,0,.72);
+    backdrop-filter:blur(18px) saturate(160%);
+    -webkit-backdrop-filter:blur(18px) saturate(160%);
+    border-bottom:1px solid rgba(201,168,76,.16);
+  }
+  .brand{line-height:1}
+  .brand .mark{font-family:var(--serif);font-size:1.7rem;font-weight:500;letter-spacing:.18em;color:var(--color-cream)}
+  .brand .sub{font-size:.58rem;letter-spacing:.55em;color:var(--color-gold);text-transform:uppercase;padding-left:.2em;margin-top:.15rem}
+  .nav-links{display:flex;align-items:center;gap:clamp(1.4rem,2.6vw,3rem);list-style:none}
+  .nav-links a{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:400;color:rgba(245,239,224,.78);position:relative;padding:.4rem 0;transition:color .4s}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--color-gold);transition:width .45s var(--ease)}
+  .nav-links a:hover{color:var(--color-cream)}
+  .nav-links a:hover::after{width:100%}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-family:var(--sans);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding:1rem 1.9rem;border-radius:1px;transition:all .45s var(--ease);position:relative;overflow:hidden}
+  .btn-gold-outline{border:1px solid var(--color-gold);color:var(--color-gold)}
+  .btn-gold-outline:hover{background:var(--color-gold);color:var(--color-dark)}
+  .btn-gold{background:var(--color-gold);color:var(--color-dark)}
+  .btn-gold:hover{background:var(--color-gold-light);transform:translateY(-2px);box-shadow:0 14px 40px -12px rgba(201,168,76,.6)}
+  .btn-light-outline{border:1px solid rgba(245,239,224,.5);color:var(--color-cream)}
+  .btn-light-outline:hover{background:var(--color-cream);color:var(--color-dark);border-color:var(--color-cream)}
+  .btn-ghost{padding:0;letter-spacing:.2em;color:var(--color-gold);position:relative}
+  .btn-ghost span{border-bottom:1px solid rgba(201,168,76,.4);padding-bottom:.3rem;transition:border-color .4s}
+  .btn-ghost:hover span{border-color:var(--color-gold)}
+
+  .nav-cta{display:inline-flex}
+  .hamburger{display:none;flex-direction:column;gap:5px;width:30px;z-index:1100}
+  .hamburger span{height:1.5px;width:100%;background:var(--color-cream);transition:.4s var(--ease)}
+  .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;height:100svh;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .hero-bg{position:absolute;inset:-6%;z-index:0;
+    background:#1A0A00 url("https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
+    animation:kenburns 26s ease-in-out infinite alternate;
+    will-change:transform;
+  }
+  @keyframes kenburns{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.18) translate(-1.5%,-1.5%)}}
+  .hero-overlay{position:absolute;inset:0;z-index:1;
+    background:
+      radial-gradient(120% 90% at 50% 18%, rgba(13,5,0,.18), rgba(13,5,0,.78) 70%, var(--color-dark) 100%),
+      linear-gradient(180deg, rgba(13,5,0,.55), rgba(13,5,0,.2) 40%, rgba(13,5,0,.92));
+  }
+  .hero-content{position:relative;z-index:2;padding:0 var(--gutter);max-width:1220px;width:100%}
+  .hero .eyebrow{margin-bottom:1.6rem;justify-content:center}
+  .hero h1{font-size:clamp(2.4rem, 6vw, 6.4rem);margin-bottom:1.5rem}
+  .hero h1 .it{font-style:italic;color:var(--color-gold-light);font-weight:300}
+  .hero-sub{font-size:clamp(1rem,1.7vw,1.25rem);font-weight:300;letter-spacing:.04em;color:rgba(245,239,224,.78);max-width:42ch;margin:0 auto 2.8rem}
+  .hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .scroll-ind{position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.9rem;color:rgba(245,239,224,.55)}
+  .scroll-ind span{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase}
+  .scroll-line{width:1px;height:54px;background:linear-gradient(var(--color-gold),transparent);position:relative;overflow:hidden}
+  .scroll-line::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--color-cream);animation:scrolldrop 2.2s var(--ease) infinite}
+  @keyframes scrolldrop{0%{top:-50%}60%,100%{top:100%}}
+
+  /* ---------- stats ---------- */
+  .stats{background:linear-gradient(180deg,var(--color-dark),var(--color-espresso));padding:var(--section-pad) var(--gutter);position:relative}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1200px;margin:0 auto;border-top:1px solid rgba(201,168,76,.18);border-bottom:1px solid rgba(201,168,76,.18)}
+  .stat{padding:3.4rem 1.5rem;text-align:center;border-left:1px solid rgba(201,168,76,.1)}
+  .stat:first-child{border-left:none}
+  .stat .num{font-family:var(--serif);font-size:clamp(3rem,5.5vw,5rem);line-height:1;color:var(--color-gold);font-weight:400}
+  .stat .label{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,239,224,.6);margin-top:1rem}
+  .stats-note{text-align:center;max-width:60ch;margin:3.4rem auto 0;font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.85rem);color:rgba(245,239,224,.82);line-height:1.4}
+
+  /* ---------- coffee / lots ---------- */
+  .coffee{background:var(--color-espresso);padding:var(--section-pad) var(--gutter)}
+  .sec-head{max-width:1300px;margin:0 auto 4.5rem;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+  .sec-head .eyebrow{margin-bottom:1.5rem}
+  .sec-head h2{max-width:14ch}
+  .lots{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;max-width:1300px;margin:0 auto}
+  .lot{position:relative;border:1px solid rgba(201,168,76,.16);background:linear-gradient(180deg,rgba(61,31,0,.35),rgba(13,5,0,.55));overflow:hidden;transition:transform .6s var(--ease),border-color .6s var(--ease),box-shadow .6s var(--ease);display:flex;flex-direction:column}
+  .lot:hover{transform:translateY(-10px);border-color:var(--color-gold);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+  .lot-img{height:230px;background-color:#3D1F00;background-size:cover;background-position:center;position:relative;transition:transform .8s var(--ease)}
+  .lot:hover .lot-img{transform:scale(1.06)}
+  .lot-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,5,0,.1),rgba(13,5,0,.85))}
+  .lot-img .grade{position:absolute;top:1.1rem;left:1.1rem;z-index:2;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--color-gold);border:1px solid rgba(201,168,76,.4);padding:.4rem .8rem;background:rgba(13,5,0,.4);backdrop-filter:blur(4px)}
+  .lot-body{padding:2.4rem 2rem 2.2rem;display:flex;flex-direction:column;flex:1}
+  .lot h3{font-size:2.6rem;margin-bottom:.3rem}
+  .lot .region{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--color-text-light)}
+  .lot-specs{margin:1.8rem 0;border-top:1px solid rgba(201,168,76,.14)}
+  .lot-specs div{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(201,168,76,.1);font-size:.82rem}
+  .lot-specs dt{color:var(--color-text-light);letter-spacing:.04em}
+  .lot-specs dd{color:var(--color-cream);text-align:right;font-weight:400}
+  .lot .notes{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--color-gold-light);line-height:1.4;margin-bottom:2rem}
+  .lot .btn{margin-top:auto;width:100%}
+
+  /* ---------- process ---------- */
+  .process{background:linear-gradient(180deg,var(--color-espresso),var(--color-dark));padding:var(--section-pad) 0}
+  .process .sec-head{padding:0 var(--gutter)}
+  .step{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(2rem,5vw,6rem);max-width:1300px;margin:0 auto;padding:clamp(3rem,7vh,7rem) var(--gutter)}
+  .step:nth-child(even) .step-media{order:2}
+  .step-media{aspect-ratio:4/3;background-color:#3D1F00;background-size:cover;background-position:center;position:relative;overflow:hidden;border:1px solid rgba(201,168,76,.16)}
+  .step-media::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,5,0,.15),rgba(13,5,0,.5))}
+  .step-num{font-family:var(--serif);font-size:clamp(4rem,9vw,8rem);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.55);text-stroke:1px rgba(201,168,76,.55);margin-bottom:1.4rem}
+  .step h3{font-size:clamp(2rem,3.6vw,3.2rem);margin-bottom:1.4rem;color:var(--color-cream)}
+  .step p{color:rgba(245,239,224,.62);font-size:1.05rem;max-width:46ch}
+
+  /* ---------- farms ---------- */
+  .farms{position:relative;padding:var(--section-pad) var(--gutter);background-color:var(--color-dark);overflow:hidden}
+  .farms-bg{position:absolute;inset:0;z-index:0;background:#0D0500 url("https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?auto=format&fit=crop&w=2200&q=80") center/cover;opacity:.28}
+  .farms-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(13,5,0,.4),var(--color-dark) 85%)}
+  .farms-inner{position:relative;z-index:1;max-width:1300px;margin:0 auto}
+  .farms-head{max-width:60ch;margin-bottom:4rem}
+  .farms-head h2{margin:1.5rem 0 1.5rem}
+  .farms-head p{color:rgba(245,239,224,.66);font-size:1.1rem}
+  .regions{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-bottom:3.5rem}
+  .region{border:1px solid rgba(201,168,76,.2);background:rgba(13,5,0,.45);backdrop-filter:blur(6px);padding:2.4rem 2rem;transition:.5s var(--ease)}
+  .region:hover{background:rgba(61,31,0,.5);border-color:var(--color-gold)}
+  .region .coord{font-size:.68rem;letter-spacing:.18em;color:var(--color-gold);font-family:var(--sans)}
+  .region h3{font-size:2.1rem;margin:.6rem 0 1rem}
+  .region p{font-size:.92rem;color:rgba(245,239,224,.6)}
+
+  /* ---------- sustainability ---------- */
+  .sustain{background:var(--color-cream);color:var(--color-text);padding:var(--section-pad) var(--gutter);text-align:center}
+  .sustain .eyebrow{color:var(--color-brown);justify-content:center}
+  .sustain .eyebrow::before,.sustain .eyebrow::after{background:linear-gradient(90deg,transparent,var(--color-brown))}
+  .sustain h2{margin:1.6rem auto 1.2rem;max-width:18ch;color:var(--color-text)}
+  .sustain .lead{color:var(--color-text-light);margin:0 auto 4.5rem;text-align:center}
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;max-width:1200px;margin:0 auto}
+  .pillar{padding:3rem 1.8rem;border:1px solid rgba(61,31,0,.14);background:rgba(255,255,255,.4);transition:.5s var(--ease)}
+  .pillar:hover{background:#fff;transform:translateY(-6px);box-shadow:0 24px 50px -28px rgba(61,31,0,.4)}
+  .pillar .icon{font-size:2.4rem;margin-bottom:1.4rem;filter:saturate(.85)}
+  .pillar h3{font-size:1.5rem;color:var(--color-text);line-height:1.15}
+
+  /* ---------- why ---------- */
+  .why{background:var(--color-espresso);padding:var(--section-pad) var(--gutter)}
+  .why-inner{max-width:1300px;margin:0 auto}
+  .why-head{max-width:24ch;margin-bottom:4rem}
+  .why-head h2{margin-top:1.5rem}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.16);border:1px solid rgba(201,168,76,.16)}
+  .why-item{background:var(--color-espresso);padding:3rem 2.4rem;transition:background .5s var(--ease)}
+  .why-item:hover{background:var(--color-brown)}
+  .why-item .idx{font-family:var(--serif);font-size:1rem;color:var(--color-gold);display:block;margin-bottom:1.4rem;letter-spacing:.1em}
+  .why-item p{font-size:1.25rem;font-family:var(--serif);color:var(--color-cream);line-height:1.3}
+
+  /* ---------- contact ---------- */
+  .contact{background:linear-gradient(180deg,var(--color-dark),var(--color-espresso));padding:var(--section-pad) var(--gutter)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,6rem);max-width:1280px;margin:0 auto;align-items:start}
+  .contact-left .eyebrow{margin-bottom:1.6rem}
+  .contact-quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.25;color:var(--color-cream);margin:1.4rem 0 3rem}
+  .contact-quote .gold{color:var(--color-gold)}
+  .contact-info{display:flex;flex-direction:column;gap:1.6rem;border-top:1px solid rgba(201,168,76,.18);padding-top:2.4rem}
+  .contact-info .row .k{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-gold);margin-bottom:.4rem}
+  .contact-info .row .v{font-size:1.05rem;color:rgba(245,239,224,.86)}
+  .form{background:rgba(13,5,0,.4);border:1px solid rgba(201,168,76,.18);padding:clamp(2rem,4vw,3.2rem)}
+  .field{margin-bottom:1.6rem}
+  .field label{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--color-text-light);margin-bottom:.7rem}
+  .field input,.field select,.field textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,168,76,.3);color:var(--color-cream);font-family:var(--sans);font-size:1rem;padding:.7rem 0;transition:border-color .4s}
+  .field select{cursor:pointer}
+  .field select option{background:var(--color-espresso);color:var(--color-cream)}
+  .field textarea{resize:vertical;min-height:90px}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--color-gold)}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(139,115,85,.6)}
+  .form .btn{width:100%;margin-top:.8rem}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+  .form-msg{display:none;margin-top:1.4rem;font-size:.9rem;color:var(--color-gold-light);text-align:center;font-family:var(--serif);font-style:italic;font-size:1.1rem}
+  .form-msg.show{display:block;animation:fadeup .6s var(--ease)}
+  .form-msg.error{color:#E2A98F}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--color-dark);padding:clamp(4rem,8vh,6rem) var(--gutter) 2.5rem;border-top:1px solid rgba(201,168,76,.14)}
+  .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem;max-width:1300px;margin:0 auto 4rem}
+  .foot-brand .mark{font-family:var(--serif);font-size:2.2rem;font-weight:500;letter-spacing:.16em}
+  .foot-brand .sub{font-size:.58rem;letter-spacing:.5em;color:var(--color-gold);text-transform:uppercase;margin-top:.3rem}
+  .foot-brand p{margin-top:1.6rem;color:var(--color-text-light);font-family:var(--serif);font-style:italic;font-size:1.15rem;max-width:30ch;line-height:1.4}
+  .foot-col h4{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-gold);margin-bottom:1.4rem;font-family:var(--sans);font-weight:500}
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.8rem}
+  .foot-col a{font-size:.92rem;color:rgba(245,239,224,.62);transition:color .4s}
+  .foot-col a:hover{color:var(--color-gold)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;max-width:1300px;margin:0 auto;padding-top:2.2rem;border-top:1px solid rgba(201,168,76,.12)}
+  .foot-bottom .copy{font-size:.78rem;color:var(--color-text-light);letter-spacing:.04em}
+  .socials{display:flex;gap:1rem}
+  .socials a{width:38px;height:38px;border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;border-radius:50%;transition:.4s var(--ease)}
+  .socials a:hover{background:var(--color-gold);border-color:var(--color-gold);color:var(--color-dark);transform:translateY(-3px)}
+  .socials svg{width:16px;height:16px}
+
+  /* ---------- reveal anim ---------- */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .stagger>*{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .stagger.in>*{opacity:1;transform:none}
+  .stagger.in>*:nth-child(2){transition-delay:.12s}
+  .stagger.in>*:nth-child(3){transition-delay:.24s}
+  .stagger.in>*:nth-child(4){transition-delay:.36s}
+  .stagger.in>*:nth-child(5){transition-delay:.48s}
+  .stagger.in>*:nth-child(6){transition-delay:.6s}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal,.stagger>*{opacity:1;transform:none}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(3){border-left:none}
+    .lots{grid-template-columns:1fr;max-width:480px}
+    .step{grid-template-columns:1fr;gap:2rem}
+    .step:nth-child(even) .step-media{order:0}
+    .regions{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+    .pillars{grid-template-columns:repeat(2,1fr)}
+    .why-grid{grid-template-columns:1fr 1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr 1fr;gap:2.5rem 1.5rem}
+    .foot-brand{grid-column:1/-1}
+  }
+  @media (max-width:680px){
+    .nav-links,.nav-cta{
+      position:fixed;inset:0;flex-direction:column;justify-content:center;align-items:center;
+      gap:2rem;background:rgba(13,5,0,.97);backdrop-filter:blur(20px);
+      transform:translateX(100%);transition:transform .6s var(--ease);
+    }
+    nav.menu-open .nav-links,nav.menu-open .nav-cta{transform:translateX(0)}
+    .nav-cta{inset:auto 0 18% 0;background:transparent;backdrop-filter:none}
+    .nav-links a{font-size:1.4rem}
+    .nav-links a::after{display:none}
+    .hamburger{display:flex}
+    .stats-grid{grid-template-columns:1fr}
+    .stat,.stat:nth-child(3){border-left:none}
+    .stat{border-top:1px solid rgba(201,168,76,.1)}
+    .stat:first-child{border-top:none}
+    .pillars{grid-template-columns:1fr;max-width:380px;margin-inline:auto}
+    .why-grid{grid-template-columns:1fr}
+    .form-row{grid-template-columns:1fr}
+    .sec-head{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <a href="#hero" class="brand" aria-label="Eko Cup Trading home">
+    <div class="mark">EKO CUP</div>
+    <div class="sub">Trading</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#stats">Origin</a></li>
+    <li><a href="#coffee">Our Coffee</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#farms">Farms</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn btn-gold-outline nav-cta">Request Samples</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="eyebrow center">Specialty Green Coffee · Addis Ababa</span>
+    <h1 class="display">From the Birthplace<br>of Coffee, <span class="it">to the</span><br>World's Finest Roasters</h1>
+    <p class="hero-sub">Single-origin Ethiopian specialty coffee. Traceable. Sustainable. Exceptional.</p>
+    <div class="hero-ctas">
+      <a href="#coffee" class="btn btn-gold">Explore Our Lots</a>
+      <a href="#stats" class="btn btn-light-outline">Our Story</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- ============ STATS / ORIGIN ============ -->
+<section class="stats" id="stats">
+  <div class="stats-grid stagger reveal">
+    <div class="stat"><div class="num" data-target="2000" data-suffix="m+" data-comma="1">0</div><div class="label">Average Altitude</div></div>
+    <div class="stat"><div class="num" data-target="100" data-suffix="+">0</div><div class="label">Farmer Partnerships</div></div>
+    <div class="stat"><div class="num" data-target="3">0</div><div class="label">Origin Regions</div></div>
+    <div class="stat"><div class="num" data-target="15" data-suffix="+">0</div><div class="label">Years of Heritage</div></div>
+  </div>
+  <p class="stats-note reveal">Ethiopia is the birthplace of Arabica coffee. We bring its finest expressions to the world.</p>
+</section>
+
+<!-- ============ OUR COFFEE ============ -->
+<section class="coffee" id="coffee">
+  <div class="sec-head reveal">
+    <div>
+      <span class="eyebrow">Our Coffee</span>
+      <h2 class="section-title">Single-Origin Lots</h2>
+    </div>
+    <p class="lead">Each lot carries the signature of its terroir — picked, processed, and cupped with obsessive care across Ethiopia's most storied growing regions.</p>
+  </div>
+
+  <div class="lots stagger reveal">
+    <!-- Yirgacheffe -->
+    <article class="lot">
+      <div class="lot-img" data-img="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=900&q=80">
+        <span class="grade">Ethiopia Grade 1</span>
+      </div>
+      <div class="lot-body">
+        <h3>Yirgacheffe</h3>
+        <div class="region">Gedeo Zone · SNNPR</div>
+        <dl class="lot-specs">
+          <div><dt>Process</dt><dd>Washed</dd></div>
+          <div><dt>Altitude</dt><dd>1,800–2,200 masl</dd></div>
+        </dl>
+        <p class="notes">Jasmine · Bergamot · Stone Fruit · Clean Citrus</p>
+        <a href="#contact" class="btn btn-gold-outline">Request This Lot</a>
+      </div>
+    </article>
+
+    <!-- Sidama -->
+    <article class="lot">
+      <div class="lot-img" data-img="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=900&q=80">
+        <span class="grade">Ethiopia Grade 1</span>
+      </div>
+      <div class="lot-body">
+        <h3>Sidama</h3>
+        <div class="region">Sidama Zone</div>
+        <dl class="lot-specs">
+          <div><dt>Process</dt><dd>Washed</dd></div>
+          <div><dt>Altitude</dt><dd>1,500–2,200 masl</dd></div>
+        </dl>
+        <p class="notes">Blackcurrant · Peach · Dark Chocolate · Sweet Spice</p>
+        <a href="#contact" class="btn btn-gold-outline">Request This Lot</a>
+      </div>
+    </article>
+
+    <!-- Guji -->
+    <article class="lot">
+      <div class="lot-img" data-img="https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=900&q=80">
+        <span class="grade">Ethiopia Grade 1</span>
+      </div>
+      <div class="lot-body">
+        <h3>Guji</h3>
+        <div class="region">West Guji Zone · Oromia</div>
+        <dl class="lot-specs">
+          <div><dt>Process</dt><dd>Natural &amp; Washed</dd></div>
+          <div><dt>Altitude</dt><dd>1,800–2,400 masl</dd></div>
+        </dl>
+        <p class="notes">Blueberry · Tropical Fruit · Honey · Floral</p>
+        <a href="#contact" class="btn btn-gold-outline">Request This Lot</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process" id="process">
+  <div class="sec-head reveal">
+    <div>
+      <span class="eyebrow">From Cherry to Container</span>
+      <h2 class="section-title">The Process</h2>
+    </div>
+    <p class="lead">A disciplined chain of decisions — at origin, on the bed, and at the cupping table — protects the clarity that defines great Ethiopian coffee.</p>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-media" data-img="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?auto=format&fit=crop&w=1100&q=80"></div>
+    <div class="step-text">
+      <div class="step-num">01</div>
+      <h3>Direct Sourcing</h3>
+      <p>We work directly with smallholder farmers across Ethiopia's highlands, providing fair prices and technical support for better yields.</p>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-media" data-img="https://images.unsplash.com/photo-1442550528053-c431ecb55509?auto=format&fit=crop&w=1100&q=80"></div>
+    <div class="step-text">
+      <div class="step-num">02</div>
+      <h3>Meticulous Processing</h3>
+      <p>Our washed lots go through careful cherry selection, fermentation monitoring, and raised-bed drying to achieve clarity and complexity.</p>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-media" data-img="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1100&q=80"></div>
+    <div class="step-text">
+      <div class="step-num">03</div>
+      <h3>Quality Control</h3>
+      <p>Every lot is cupped multiple times at our Addis Ababa lab before export. We only ship what meets our 84+ SCA score threshold.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FARMS ============ -->
+<section class="farms" id="farms">
+  <div class="farms-bg"></div>
+  <div class="farms-inner">
+    <div class="farms-head reveal">
+      <span class="eyebrow">Our Farms</span>
+      <h2 class="section-title">Rooted in Ethiopia's Highlands</h2>
+      <p>Our farms span three of Ethiopia's most celebrated coffee-growing regions — each with distinct terroir, microclimates, and flavor identities that have captivated roasters for generations.</p>
+    </div>
+    <div class="regions stagger reveal">
+      <div class="region">
+        <div class="coord">6.16° N · 38.20° E</div>
+        <h3>Yirgacheffe</h3>
+        <p>High-altitude Gedeo terraces yielding delicate, tea-like florals and bright, layered acidity.</p>
+      </div>
+      <div class="region">
+        <div class="coord">6.77° N · 38.50° E</div>
+        <h3>Sidama</h3>
+        <p>Rolling highland forests producing full-bodied lots with deep fruit sweetness and structure.</p>
+      </div>
+      <div class="region">
+        <div class="coord">5.98° N · 38.40° E</div>
+        <h3>Guji</h3>
+        <p>Remote Oromia ridgelines famed for vivid, fruit-forward naturals and crystalline washed lots.</p>
+      </div>
+    </div>
+    <div class="reveal"><a href="#contact" class="btn btn-gold">Download Our Farm Profiles</a></div>
+  </div>
+</section>
+
+<!-- ============ SUSTAINABILITY ============ -->
+<section class="sustain" id="sustain">
+  <span class="eyebrow center">Stewardship</span>
+  <h2 class="section-title reveal">Grown With the Land in Mind</h2>
+  <p class="lead reveal">We believe exceptional coffee and environmental stewardship are inseparable.</p>
+  <div class="pillars stagger reveal">
+    <div class="pillar"><div class="icon">🌱</div><h3>Shade-Grown Cultivation</h3></div>
+    <div class="pillar"><div class="icon">💧</div><h3>Water-Efficient Processing</h3></div>
+    <div class="pillar"><div class="icon">🤝</div><h3>Farmer Fair Pricing</h3></div>
+    <div class="pillar"><div class="icon">♻️</div><h3>Zero Waste Commitment</h3></div>
+  </div>
+</section>
+
+<!-- ============ WHY EKO CUP ============ -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="why-head reveal">
+      <span class="eyebrow">Why Eko Cup</span>
+      <h2 class="section-title">Built for the World's Best Roasters</h2>
+    </div>
+    <div class="why-grid stagger reveal">
+      <div class="why-item"><span class="idx">01</span><p>Fully traceable lots to farm level</p></div>
+      <div class="why-item"><span class="idx">02</span><p>Direct trade, no middlemen</p></div>
+      <div class="why-item"><span class="idx">03</span><p>Pre-ship and shipment samples available</p></div>
+      <div class="why-item"><span class="idx">04</span><p>Consistent annual supply contracts</p></div>
+      <div class="why-item"><span class="idx">05</span><p>Flexible lot sizes — one bag to full containers</p></div>
+      <div class="why-item"><span class="idx">06</span><p>Dedicated export logistics team</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left reveal">
+      <span class="eyebrow">Sample Request</span>
+      <p class="contact-quote">"The cup tells the truth of the land it came from. <span class="gold">We simply protect that truth</span> all the way to your roastery."</p>
+      <div class="contact-info">
+        <div class="row"><div class="k">Office</div><div class="v">Bole Atlas, Addis Ababa, Ethiopia</div></div>
+        <div class="row"><div class="k">Phone</div><div class="v">+251 (0) 913 054 340</div></div>
+        <div class="row"><div class="k">Email</div><div class="v">info@ekocuptrading.com</div></div>
+      </div>
+    </div>
+
+    <div class="form reveal">
+      <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" placeholder="Your name" /></div>
+      <div class="form-row">
+        <div class="field"><label for="f-company">Company</label><input id="f-company" type="text" placeholder="Roastery / company" /></div>
+        <div class="field"><label for="f-country">Country</label><input id="f-country" type="text" placeholder="Country" /></div>
+      </div>
+      <div class="field">
+        <label for="f-origin">Coffee Origin Interest</label>
+        <select id="f-origin">
+          <option>Yirgacheffe</option>
+          <option>Sidama</option>
+          <option>Guji</option>
+          <option selected>All Origins</option>
+        </select>
+      </div>
+      <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" placeholder="Tell us about your volumes, timing, and the profiles you're after…"></textarea></div>
+      <button class="btn btn-gold" id="submitBtn" type="button">Request Samples</button>
+      <p class="form-msg" id="formMsg">Thank you — your request has reached our export desk. We'll be in touch within one business day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="mark">EKO CUP</div>
+      <div class="sub">Trading</div>
+      <p>Eko Cup Trading — Ethiopia's Specialty Coffee to the World.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#stats">Origin</a></li>
+        <li><a href="#coffee">Our Coffee</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#farms">Farms</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Coffee Origins</h4>
+      <ul>
+        <li><a href="#coffee">Yirgacheffe</a></li>
+        <li><a href="#coffee">Sidama</a></li>
+        <li><a href="#coffee">Guji</a></li>
+        <li><a href="#farms">Farm Profiles</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#contact">Bole Atlas, Addis Ababa</a></li>
+        <li><a href="tel:+251913054340">+251 (0) 913 054 340</a></li>
+        <li><a href="mailto:info@ekocuptrading.com">info@ekocuptrading.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="copy">© 2025 Eko Cup Trading. All rights reserved.</div>
+    <div class="socials">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.4 8.3h4.1V24H.4zM8.1 8.3h3.9v2.15h.06c.54-1.02 1.86-2.1 3.84-2.1 4.1 0 4.86 2.7 4.86 6.22V24h-4.06v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.53 1.72-2.53 3.49V24H8.1z"/></svg></a>
+      <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.3 8.34L23.3 22h-6.6l-5.17-6.76L5.6 22H2.5l7.8-8.92L1 2h6.77l4.68 6.18zm-1.16 18h1.7L7.1 3.86H5.3z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---------- page load fade-in ---------- */
+  window.addEventListener('load', () => document.body.classList.add('loaded'));
+
+  /* ---------- lazy-apply background images (perf) ---------- */
+  document.querySelectorAll('[data-img]').forEach(el => {
+    const src = el.getAttribute('data-img');
+    const img = new Image();
+    img.onload = () => { el.style.backgroundImage = `url("${src}")`; el.style.transition = 'background-image .6s ease'; };
+    // if it fails, the gradient/solid base color simply remains — graceful fallback
+    img.src = src;
+  });
+
+  /* ---------- nav: frosted on scroll ---------- */
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---------- mobile menu ---------- */
+  const burger = document.getElementById('hamburger');
+  burger.addEventListener('click', () => {
+    const open = nav.classList.toggle('menu-open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('.nav-links a, .nav-cta').forEach(a =>
+    a.addEventListener('click', () => {
+      nav.classList.remove('menu-open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    })
+  );
+
+  /* ---------- scroll reveal ---------- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ---------- animated counters ---------- */
+  const fmt = (n, comma) => comma ? n.toLocaleString('en-US') : String(n);
+  const runCounter = (el) => {
+    const target = +el.dataset.target;
+    const suffix = el.dataset.suffix || '';
+    const comma = el.dataset.comma === '1';
+    const dur = 1900; const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.round(target * eased), comma) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ runCounter(e.target); counterIO.unobserve(e.target); } });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.stat .num').forEach(el => counterIO.observe(el));
+
+  /* ---------- form ---------- */
+  // ── SET THIS: paste the free access key you generate at https://web3forms.com ──
+  const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+
+  const submitBtn = document.getElementById('submitBtn');
+  const formMsg = document.getElementById('formMsg');
+
+  submitBtn.addEventListener('click', async () => {
+    const nameEl = document.getElementById('f-name');
+    const name = nameEl.value.trim();
+    if (!name) { nameEl.focus(); return; }
+
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: 'New Sample Request — Eko Cup Trading',
+      from_name: 'Eko Cup Trading Website',
+      name: name,
+      company: document.getElementById('f-company').value.trim(),
+      country: document.getElementById('f-country').value.trim(),
+      origin_interest: document.getElementById('f-origin').value,
+      message: document.getElementById('f-msg').value.trim()
+    };
+
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+    formMsg.classList.remove('error');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (data.success) {
+        formMsg.classList.add('show');               // shows the thank-you text already in the HTML
+        submitBtn.textContent = 'Request Sent ✓';
+        ['f-name','f-company','f-country','f-msg'].forEach(id => document.getElementById(id).value = '');
+      } else {
+        throw new Error(data.message || 'submit failed');
+      }
+    } catch (err) {
+      formMsg.textContent = 'Something went wrong sending your request — please email info@ekocuptrading.com directly.';
+      formMsg.classList.add('show', 'error');
+      submitBtn.textContent = 'Try Again';
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
