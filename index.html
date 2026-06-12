@@ -12,7 +12,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Eko Cup Trading — Ethiopia's Specialty Coffee to the World" />
 <meta property="og:description" content="Traceable, single-origin Ethiopian green coffee from Yirgacheffe, Sidama & Guji. Direct trade. 84+ SCA. Built for the world's best roasters." />
-<meta property="og:image" content="https://images.unsplash.com/photo-1572888195250-3037a59d3578?auto=format&fit=crop&w=2400&q=80" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1634029878815-1bb307302471?auto=format&fit=crop&w=2400&q=80" />
 <meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Eko Cup Trading — Ethiopia's Specialty Coffee to the World" />
@@ -144,7 +144,7 @@
   .hero{position:relative;height:100svh;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
   .hero-bg{
     position:absolute;inset:-6%;z-index:0;
-    background:#2E1D12 url("https://images.unsplash.com/photo-1572888195250-3037a59d3578?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
+    background:#2E1D12 url("https://images.unsplash.com/photo-1634029878815-1bb307302471?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
     animation:kenburns 26s ease-in-out infinite alternate;
     will-change:transform;
   }
@@ -176,6 +176,18 @@
   .stat .num{font-family:var(--serif);font-size:clamp(3rem,5.5vw,5rem);line-height:1;color:var(--color-caramel);font-weight:400}
   .stat .label{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(241,231,215,.6);margin-top:1rem}
   .stats-note{text-align:center;max-width:60ch;margin:3.4rem auto 0;font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.85rem);color:rgba(241,231,215,.82);line-height:1.4}
+
+  /* ---------- story ---------- */
+  .story{background:var(--color-espresso);padding:var(--section-pad) var(--gutter)}
+  .story-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,6vw,6rem);align-items:center}
+  .story-text .eyebrow{margin-bottom:1.6rem}
+  .story-text h2{margin:0 0 1.8rem}
+  .story-text p{color:rgba(241,231,215,.7);font-size:1.05rem;line-height:1.75;margin-bottom:1.2rem;max-width:62ch}
+  .story-text p.lead-para{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2vw,1.7rem);color:rgba(241,231,215,.92);line-height:1.45;margin-bottom:1.8rem}
+  .story-text .btn{margin-top:1rem}
+  .story-media{position:relative;aspect-ratio:4/5;border:1px solid rgba(181,128,62,.18);overflow:hidden;background:#2E1D12 center/cover no-repeat}
+  .story-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(13,8,4,.4))}
+  @media(max-width:900px){.story-inner{grid-template-columns:1fr;gap:2.5rem}.story-media{aspect-ratio:16/10;max-height:440px;order:-1}}
 
   /* ---------- coffee (2-up: cream cards | dark panel) ---------- */
   .coffee{display:grid;grid-template-columns:1fr 0.6fr;align-items:stretch}
@@ -242,8 +254,8 @@
 
   /* ---------- farms (dark, immersive) ---------- */
   .farms{position:relative;padding:var(--section-pad) var(--gutter);background-color:var(--color-dark);overflow:hidden}
-  .farms-bg{position:absolute;inset:0;z-index:0;background:var(--color-dark) url("https://images.unsplash.com/photo-1654815439629-5e93cb7f74a1?auto=format&fit=crop&w=2200&q=80") center/cover;opacity:.28}
-  .farms-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(36,23,16,.4),var(--color-dark) 85%)}
+  .farms-bg{position:absolute;inset:0;z-index:0;background:var(--color-dark) url("https://images.unsplash.com/photo-1597816792530-f6d57bd2bf9e?auto=format&fit=crop&w=2200&q=80") center/cover;opacity:.55}
+  .farms-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 32%,rgba(36,23,16,.22),rgba(36,23,16,.82) 92%)}
   .farms-inner{position:relative;z-index:1;max-width:1300px;margin:0 auto}
   .farms-head{max-width:60ch;margin-bottom:4rem}
   .farms-head h2{margin:1.5rem 0 1.5rem}
@@ -544,7 +556,7 @@
     <p class="hero-sub">Single-origin Ethiopian specialty coffee. Traceable. Sustainable. Exceptional.</p>
     <div class="hero-ctas">
       <a href="#coffee" class="btn btn-caramel">Explore Our Lots</a>
-      <a href="#stats" class="btn btn-ghost-light">Our Story</a>
+      <a href="#story" class="btn btn-ghost-light">Our Story</a>
     </div>
   </div>
   <div class="scroll-ind">
@@ -561,7 +573,23 @@
     <div class="stat"><div class="num" data-target="3">0</div><div class="label">Origin Regions</div></div>
     <div class="stat"><div class="num" data-target="15" data-suffix="+">0</div><div class="label">Years of Heritage</div></div>
   </div>
-  <p class="stats-note reveal">Ethiopia is the birthplace of Arabica coffee. We bring its finest expressions to the world.</p>
+  <p class="stats-note reveal">Ethiopia is the birthplace of Arabica coffee &mdash; the land where the plant first grew wild and where the ritual of the cup began. From these highlands, Eko Cup Trading brings the country's finest single-origin expressions to roasters across the world, with the traceability and care that specialty coffee demands.</p>
+</section>
+
+<!-- OUR STORY -->
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="story-text reveal">
+      <span class="eyebrow">Our Story</span>
+      <h2 class="section-title">Coffee Was Born Here.<br>We Carry It Forward.</h2>
+      <p class="lead-para">Long before coffee reached the world's cups, it grew wild in the forests of Ethiopia. That heritage isn't a tagline for us &mdash; it's the ground we stand on.</p>
+      <p>Eko Cup Trading is an Addis Ababa&ndash;based exporter of single-origin Ethiopian specialty green coffee. We work at the source, alongside the smallholder farmers and washing stations of Yirgacheffe, Sidama, and Guji, to bring fully traceable lots to roasters around the world.</p>
+      <p>Ethiopia's highlands give coffee something no other origin can replicate: thousands of indigenous heirloom varieties, elevations climbing past 2,000 metres, and generations of growers who know the land intimately. Our work is to protect that character at every step &mdash; from selective cherry picking and careful fermentation to raised-bed drying and repeated cupping &mdash; so that what leaves our mill is exactly what the farm intended.</p>
+      <p>We believe direct relationships make better coffee and fairer trade. By removing unnecessary intermediaries, we return more value to the farming communities who make this work possible, and we give our partners abroad consistent quality, dependable supply, and a name they can trust season after season.</p>
+      <a href="#coffee" class="btn btn-caramel">Explore Our Coffee</a>
+    </div>
+    <div class="story-media reveal" data-img="https://images.unsplash.com/photo-1573401545579-498aa95975bd?auto=format&fit=crop&w=1100&q=80"></div>
+  </div>
 </section>
 
 <!-- COFFEE (2-up) -->
@@ -639,7 +667,7 @@
   </div>
 
   <div class="step reveal">
-    <div class="step-media" data-img="https://images.unsplash.com/photo-1662559100586-59d3ca30a7e8?auto=format&fit=crop&w=1100&q=80"></div>
+    <div class="step-media" data-img="https://images.unsplash.com/photo-1709719263827-2d3c00d8d19e?auto=format&fit=crop&w=1100&q=80"></div>
     <div class="step-text">
       <div class="step-num">01</div>
       <h3>Direct Sourcing</h3>
@@ -673,7 +701,7 @@
     <div class="farms-head reveal">
       <span class="eyebrow">Our Farms</span>
       <h2 class="section-title">Rooted in Ethiopia's Highlands</h2>
-      <p>Our farms span three of Ethiopia's most celebrated coffee-growing regions, each with distinct terroir, microclimates, and flavor identities that have captivated roasters for generations.</p>
+      <p>Our farms and partner washing stations span three of Ethiopia's most celebrated coffee-growing regions &mdash; each with distinct terroir, microclimates, and flavour identities that have captivated roasters for generations. Across these highlands, cool nights, mineral-rich soils, and elevations above 2,000 metres slow the cherries as they ripen, concentrating the sweetness and delicate aromatics that make Ethiopian coffee unmistakable in the cup.</p>
     </div>
     <div class="regions stagger reveal">
       <div class="region">
